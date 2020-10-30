@@ -55,10 +55,6 @@ header{
     /* transition: border 0.3s; */
 }
 
-.input:focus{
-    /* border: 3px solid red; */
-}
-
 .status{
     text-align: center;
     padding-top: 30px;
