@@ -17,7 +17,7 @@
   <li>Go to the <b>artists-api</b> folder and import <code>artists.sql</code> file to your database (<b>api-db</b>).</li>
   <li>After successfully importing <code>artists.sql</code>, a new table (<b>artists_table</b>) will be created in your database with sample data, you can manually insert your own data to the table as well.</li>  
  </ol>
- <p>These steps are needed to setup the database for your <b>artists-api</b>, before you can proceed to the next phase.</p>
+ <p>These steps are needed to setup the database for your <b>artists-api</b> before you can proceed to the next phase.</p>
 
 <h2>WHAT DOES THIS API DO?</h2>
 <p>Okay, this API is used to fetch information about musicians from a database(<b>api-db</b>) that contains musicians data. This database is defined by you!, meaning, you have to fill in the data yourself. Don't worry, I've created the database and table for you and also added a few data, all you have to do is to add more data.</p>
