@@ -14,8 +14,8 @@
  <ol>
   <li>Clone this repo (<b>api-demo</b>) into your <b>htdocs</b> or <b>www</b> folder of your server folder.</li>
   <li>Go to <code>localhost/phpmyadmin</code> in your browser and create a new <b>Database</b>(name it <b>api-db</b>) and proceed.</li>
-  <li>Go to the <b>artists-api</b> folder and import <code>artists.sql</code> file to 
-  
+  <li>Go to the <b>artists-api</b> folder and import <code>artists.sql</code> file to your database (<b>api-db</b>).</li>
+  <li>After successfully importing <code>artists.sql</code>, a new table (<b>artists_table</b>) will be created in your database with sample data, you can manually insert your own data to the table as well.</li>  
  </ol>
 
 <h2>WHAT DOES THIS API DO?</h2>
