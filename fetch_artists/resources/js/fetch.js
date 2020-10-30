@@ -4,7 +4,6 @@ $('.myForm').submit((e)=>{
 
 $('.input').keyup(() => {
     var user = $('.input').val();
-    var allImages = document.querySelector('img');
 
     $('.holdata').html('');
     $('.status').html('');
@@ -52,6 +51,7 @@ $('.input').keyup(() => {
                     //add class to imgSpan
                     imgSpan.classList.add('picspan');
 
+
                     //add class to viewSpan
                     viewSpan.classList.add('view');
 
@@ -90,7 +90,8 @@ $('.input').keyup(() => {
 
                     $('.input').css({
                         border: "3px solid green",
-                        boxShadow : "none",                        
+                        boxShadow : "none"
+                        
                     })
 
                     $.ajax({
@@ -102,6 +103,7 @@ $('.input').keyup(() => {
                             var dezData = data;   
                             newSrc = dezData.picture_xl;
                             imgArr[count] = newSrc;
+                            allImages = document.querySelectorAll('img');
                             for(j = 0; j < artDat.length; j++){
                                 if(allImages[j] != undefined){
                                     allImages[j].setAttribute('src', imgArr[j]);
