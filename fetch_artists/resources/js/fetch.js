@@ -18,7 +18,7 @@ $('.input').keyup(() => {
         data : {name : user},
         success : (data) => {
             var artDat = data;
-            // console.log(artDat);
+            // console.log(artDat.length);
             if(artDat == 'empty'){
                 $('.status').html('Artist not found');
                 $('.input').css({
@@ -111,6 +111,26 @@ $('.input').keyup(() => {
                                 }
                             }
                             count++;
+                        },
+                        complete : () => {
+                            //check if api returned number of artists is equal to rendered artists
+
+                            //num of artists
+                            var totArts = artDat.length;
+
+                            //rendered artists
+                            var rendArts = document.querySelectorAll('.holdata')[0].children.length;
+
+                            if(totArts != rendArts){
+                                $('.holdata').html('');
+                                $('.status').html('Multiple rendering');
+                            }
+                            else{
+                                $('.status').html('');
+                            }
+
+
+
                         }
                     })
                 }
