@@ -60,7 +60,6 @@ $('.input').keyup(() => {
                     viewSpan.classList.add('view');
 
 
-
                     //four texts and one img
                     var imgSpanSrc = document.createElement('img');
                     var nameSpanText = document.createTextNode(artDat[i].name + ' ');
@@ -71,8 +70,6 @@ $('.input').keyup(() => {
                     //add alt to img
                     var altName = dezName.toLowerCase();
                     imgSpanSrc.setAttribute('alt', altName + "'s pic")
-
-
 
                     //append to spans
                     imgSpan.appendChild(imgSpanSrc);
