@@ -6,6 +6,8 @@
 <p>This repo contains two folders, <b>artists-api</b> and <b>fetch_artists</b></p>
 <ul>
   <li>The <b>artists-api</b> folder contains source code to create the API, and</li>
-  <li>The <b>Fetch_artists</b> folder contains code to consume the API</li>
-  
-  </ul>
+  <li>The <b>fetch_artists</b> folder contains code to consume the API</li>
+ </ul>
+
+<h2>WHAT DOES THIS API DO?</h2>
+<p>Okay, this API is used to fetch information about musicians from a database that contains musicians data. This database is defined by you!, meaning, you have to fill in the data yourself. Don't worry, I've created the database and table for you and also added a few data, all you have to do is to add more data</p>
