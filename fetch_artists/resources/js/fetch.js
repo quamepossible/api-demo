@@ -41,7 +41,6 @@ $('.input').keyup(() => {
                 for(i = 0; i < artDat.length; i++){
                     var dezName = artDat[i].stage;
                     console.log(dezName);
-                    // console.log(i)
 
                     //create a div element to hold individual record
                     var newDiv = document.createElement('div');
@@ -61,9 +60,6 @@ $('.input').keyup(() => {
                     viewSpan.classList.add('view');
 
 
-
-
-
                     //four texts and one img
                     var imgSpanSrc = document.createElement('img');
                     var nameSpanText = document.createTextNode(artDat[i].name + ' ');
@@ -73,8 +69,7 @@ $('.input').keyup(() => {
 
                     //add alt to img
                     var altName = dezName.toLowerCase();
-                    imgSpanSrc.setAttribute('alt', altName + "'s pic")
-
+                    imgSpanSrc.setAttribute('alt', altName + "'s pic");
 
 
                     //append to spans
@@ -86,6 +81,7 @@ $('.input').keyup(() => {
 
                     //apend to p tag
                     var pTag = document.createElement('p');
+                    pTag.classList.add('row');
                     pTag.appendChild(imgSpan);
                     pTag.appendChild(nameSpan)
                     pTag.appendChild(stageSpan)
@@ -122,7 +118,6 @@ $('.input').keyup(() => {
                         }
                     })
                 }
-                // console.log(imgArr)
             }
         }
     })
