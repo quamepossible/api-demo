@@ -79,34 +79,42 @@ header{
 }
 
 .holdata div p{
-    /* background: green; */
-    height: 40px;
-    position: absolute;
+    background: green;
+    height: auto;
     width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'Ubuntu', sans-serif;
-}
-
-.yoimg{
-    width: 20%;
-    height: 100px;
-    border-radius: 50%;
+    position: relative;
 }
 
 .holdata div span{
+    background-color: red;
     padding: 10px 0;
-    height: 40px;
-    border-radius: 20px;
+    height: 100px;
     width: 20%;
     text-align: center;
     display: inline-block;
+    margin-top: 0;
+}
+
+.picspan{
+    position: relative;
+    overflow: hidden;
+}
+
+.yoimg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .holdata div .view{
     background: rgb(0, 155, 226);
-    width: 15%;
+    /* width: 15%; */
     cursor: pointer;
     transition: 0.3s;
     color: white;
