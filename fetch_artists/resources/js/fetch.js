@@ -69,8 +69,7 @@ $('.input').keyup(() => {
 
                     //add alt to img
                     var altName = dezName.toLowerCase();
-                    imgSpanSrc.setAttribute('alt', altName + "'s pic");
-
+                    imgSpanSrc.setAttribute('alt', altName + "'s pic")
 
                     //append to spans
                     imgSpan.appendChild(imgSpanSrc);
@@ -122,3 +121,5 @@ $('.input').keyup(() => {
         }
     })
 })
+
+
