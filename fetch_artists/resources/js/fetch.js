@@ -41,7 +41,6 @@ $('.input').keyup(() => {
                 for(i = 0; i < artDat.length; i++){
                     var dezName = artDat[i].stage;
                     console.log(dezName);
-                    // console.log(i)
 
                     //create a div element to hold individual record
                     var newDiv = document.createElement('div');
@@ -59,8 +58,6 @@ $('.input').keyup(() => {
 
                     //add class to viewSpan
                     viewSpan.classList.add('view');
-
-
 
 
 
@@ -122,7 +119,6 @@ $('.input').keyup(() => {
                         }
                     })
                 }
-                // console.log(imgArr)
             }
         }
     })
