@@ -5,15 +5,15 @@ $('.myForm').submit((e)=>{
 $('.input').keyup(() => {
     var user = $('.input').val();
     console.log(user)
-    var parImg = document.querySelector('.holimg');
+    // var parImg = document.querySelector('.holimg');
     var allImgs = document.querySelector('img');
 
     $('.holdata').html('');
     $('.status').html('');
+    // $('.yoimg').attr('src', '');
     $('.input').css({
         border: "3px solid black",
-        boxShadow : "none"
-        
+        boxShadow : "none"        
     })
     $.ajax({
         method : 'POST',
@@ -29,9 +29,6 @@ $('.input').keyup(() => {
                     border: "3px solid red",
                     boxShadow : "0 0 20px red",                    
                 })
-                if(parImg.hasChildNodes()){
-                    parImg.removeChild(allImgs)
-                }
             }
 
             else if(artDat == 'enter'){
@@ -39,9 +36,12 @@ $('.input').keyup(() => {
             }
 
             else{
+                var imgArr = []; 
+                var count = 0;
                 for(i = 0; i < artDat.length; i++){
                     var dezName = artDat[i].stage;
                     console.log(dezName);
+                    // console.log(i)
 
                     //create a div element to hold individual record
                     var newDiv = document.createElement('div');
@@ -53,8 +53,16 @@ $('.input').keyup(() => {
                     var recordSpan = document.createElement('span');
                     var viewSpan = document.createElement('span');
 
+                    //add class to imgSpan
+                    imgSpan.classList.add('picspan');
+
+
                     //add class to viewSpan
                     viewSpan.classList.add('view');
+
+
+
+
 
                     //four texts and one img
                     var imgSpanSrc = document.createElement('img');
@@ -62,6 +70,12 @@ $('.input').keyup(() => {
                     var stageSpanText = document.createTextNode(artDat[i].stage + ' ');
                     var recordSpanText = document.createTextNode(artDat[i].label + ' ');
                     var viewSpanText = document.createTextNode('View Artist');
+
+                    //add alt to img
+                    var altName = dezName.toLowerCase();
+                    imgSpanSrc.setAttribute('alt', altName + "'s pic")
+
+
 
                     //append to spans
                     imgSpan.appendChild(imgSpanSrc);
@@ -83,7 +97,6 @@ $('.input').keyup(() => {
                     holDiv = document.querySelector('.holdata');                   
                     holDiv.appendChild(newDiv);
 
-
                     $('.input').css({
                         border: "3px solid green",
                         boxShadow : "none"
@@ -96,15 +109,20 @@ $('.input').keyup(() => {
                         data : {name : dezName},
                         dataType : 'json',
                         success : (data) => {
-                            var dezData = data;        
-                            imgSpanSrc.setAttribute('src', dezData.picture_xl);
-                            imgSpanSrc.classList.add('yoimg');
-                            console.log(dezData.picture_medium)
+                            var dezData = data;   
+                            newSrc = dezData.picture_xl;
+                            imgArr[count] = newSrc;
+                            allImages = document.querySelectorAll('img');
+                            for(j = 0; j < artDat.length; j++){
+                                allImages[j].setAttribute('src', imgArr[j]);
+                                allImages[j].classList.add('yoimg');
+                            }
+                            count++;
                             console.log(data);
                         }
                     })
                 }
-              
+                // console.log(imgArr)
             }
         }
     })
