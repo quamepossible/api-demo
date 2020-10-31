@@ -113,3 +113,13 @@ header{
 .holdata div .view:hover{
     background: rgb(0, 135, 197);
 }
+
+.gif{
+    display: block;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    margin-top: 50px;
+    transform: translateX(-50%);
+    display: none;
+}
