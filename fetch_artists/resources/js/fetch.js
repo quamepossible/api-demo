@@ -2,7 +2,10 @@ $('.myForm').submit((e)=>{
     e.preventDefault();
 })
 
+var parDiv = document.querySelector('.holdata');
+
 $('.input').keyup(() => {
+
     var user = $('.input').val();
 
     $('.holdata').html('');
@@ -17,8 +20,8 @@ $('.input').keyup(() => {
         dataType : 'json',
         data : {name : user},
         success : (data) => {
+            $('.gif').css('display', 'none');
             var artDat = data;
-            // console.log(artDat.length);
             if(artDat == 'empty'){
                 $('.status').html('Artist not found');
                 $('.input').css({
@@ -36,7 +39,6 @@ $('.input').keyup(() => {
                 var count = 0;
                 for(i = 0; i < artDat.length; i++){
                     var dezName = artDat[i].stage;
-                    // console.log(dezName);
 
                     //create a div element to hold individual record
                     var newDiv = document.createElement('div');
@@ -66,6 +68,7 @@ $('.input').keyup(() => {
                     //add alt to img
                     var altName = dezName.toLowerCase();
                     imgSpanSrc.setAttribute('alt', altName + "'s pic")
+                    
 
                     //append to spans
                     imgSpan.appendChild(imgSpanSrc);
@@ -103,7 +106,7 @@ $('.input').keyup(() => {
                             var dezData = data;   
                             newSrc = dezData.picture_xl;
                             imgArr[count] = newSrc;
-                            allImages = document.querySelectorAll('img');
+                            allImages = $('.picspan > img');
                             for(j = 0; j < artDat.length; j++){
                                 if(allImages[j] != undefined){
                                     allImages[j].setAttribute('src', imgArr[j]);
@@ -113,7 +116,6 @@ $('.input').keyup(() => {
                             count++;
                         },
                         complete : () => {
-                            //check if api returned number of artists is equal to rendered artists
 
                             //num of artists
                             var totArts = artDat.length;
@@ -121,22 +123,42 @@ $('.input').keyup(() => {
                             //rendered artists
                             var rendArts = document.querySelectorAll('.holdata')[0].children.length;
 
-                            if(totArts != rendArts){
-                                $('.holdata').html('');
-                                $('.status').html('Multiple rendering');
-                            }
-                            else{
+                            //number of unneeded rendered
+                            var unRend = rendArts - totArts;
+
+                            //check if api returned number of artists is equal to rendered artists
+                            if(unRend == 0){
                                 $('.status').html('');
+                                $('.gif').css('display', 'none');
+                                $('.holdata').css('display', 'block');
                             }
 
+                            else if(unRend < 0){
+                                $('.status').html('');
+                                $('.holdata').css('display', 'none');
+                                $('.gif').css('display', 'block');
+                            }
 
+                            else if(unRend > 0){
+                                if(unRend > 0){
+                                    for(m = totArts; m < rendArts; m++){
+                                        parDiv.removeChild(parDiv.childNodes[m]);
+                                        $('.holdata').css('display', 'none');
+                                    }
+                                }  
+                                $('.gif').css('display', 'none')
+                                $('.holdata').css('display', 'block');
+
+                            }
 
                         }
                     })
                 }
+
             }
         }
     })
+
 })
 
 
