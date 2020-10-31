@@ -11,7 +11,6 @@ if(isset($_GET['name']) && !empty($_GET['name'])){
     $name = '%'. $name . '%';
     
     $sql = "SELECT * FROM artists_table WHERE NAME LIKE :name OR STAGE_NAME LIKE :name";
-    // $sql = "SELECT * FROM artists_table WHERE STAGE_NAME = :name";
     $stmt = $dbConnect->prepare($sql);
     $stmt->execute(['name' => $name]);
     $results = $stmt->fetchAll();
