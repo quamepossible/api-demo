@@ -140,12 +140,10 @@ $('.input').keyup(() => {
                             }
 
                             else if(unRend > 0){
-                                if(unRend > 0){
-                                    for(m = totArts; m < rendArts; m++){
-                                        parDiv.removeChild(parDiv.childNodes[m]);
-                                        $('.holdata').css('display', 'none');
-                                    }
-                                }  
+                                for(m = totArts; m < rendArts; m++){
+                                    parDiv.removeChild(parDiv.childNodes[m]);
+                                    $('.holdata').css('display', 'none');
+                                }
                                 $('.gif').css('display', 'none')
                                 $('.holdata').css('display', 'block');
 
